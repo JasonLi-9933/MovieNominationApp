@@ -1,6 +1,6 @@
 //jshint esversion:9
 const KEY = 'ca9f0515';
-const baseURL = "http://www.omdbapi.com/";
+const baseURL = "https://www.omdbapi.com/";
 const $ = document.querySelector.bind(document);
 const searchBar = $(".search-bar");
 const movieListBox = $("#movie-list");
