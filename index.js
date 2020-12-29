@@ -23,15 +23,13 @@ window.onload = () => {
             createMovieCard(data);
         }
     });
-    // localStorage.clear(); 
 };
 
 async function fetchMovieInfo(title) {
-    const url = baseURL + '?' + `apikey=${KEY}` + `&t=${title}` + "$page=5";
+    const url = baseURL + '?' + `apikey=${KEY}` + `&t=${title}`;
     const res = await fetch(url);
     const movieInfo = await res.json();
     if (movieInfo.Response == 'False') {
-        console.log("???");
         return null;
     } else {
         return movieInfo;
@@ -61,10 +59,8 @@ function createMovieCard(data) {
     </label>  
     `;
 
-    movieListBox.appendChild(card);
-    // console.log(card);
-    nodePairs[id] = card;
-    // console.log(nodePairs);
+    movieListBox.appendChild(card);// render the card
+    nodePairs[id] = card; // store the node for later reference if nominee get removed
     localStorage.setItem("nodePairs", JSON.stringify(nodePairs));
     storeSearchResult(data);
 
@@ -101,7 +97,6 @@ function createNomineeCard(data) {
     rmvBtn.addEventListener("change", (e) => {
         const targetMovieID = rmvBtn.value;
         const targetNode = nodePairs[targetMovieID].querySelector(".add-btn");
-        // console.log(rmvBtn.parentNode.parentNode.isSameNode(nomineeListBox));
         const nomineeCardNode = rmvBtn.parentNode.parentNode;
         nomineeCardNode.classList.add('removed');
         setTimeout(() => {
@@ -131,11 +126,9 @@ function storeNomineeList(data) {
 }
 
 function updateNomineeList(id) {
-    console.log(nomineeList);
     nomineeList = nomineeList.filter(d => {
         return d.imdbID != id;
     });
-    console.log(nomineeList);
     localStorage.setItem("nomineeList", JSON.stringify(nomineeList));
 }
 
