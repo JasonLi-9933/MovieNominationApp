@@ -1,5 +1,6 @@
 //jshint esversion:9
 const KEY = 'ca9f0515';
+const baseURL = "http://www.omdbapi.com/";
 const $ = document.querySelector.bind(document);
 const searchBar = $(".search-bar");
 const movieListBox = $("#movie-list");
@@ -16,39 +17,24 @@ window.onload = () => {
     searchBar.addEventListener("change", async (e) => {
         const title = e.target.value;
         const data = await fetchMovieInfo(title);
+        console.log(data);
         if (data == null) alert("No such movie is found!");
         else {
-            console.log(data);
             createMovieCard(data);
         }
     });
-    console.log(nomineeListBox.childNodes);
     // localStorage.clear(); 
 };
 
-function configReq(title) {
-    const movieAPI = axios.create({
-        baseURL: "http://www.omdbapi.com/",
-        params: {
-            t: title,
-            apikey: KEY,
-            type: 'movie'
-        },
-        proxy: {
-            protocol: "https"
-        }
-    });
-    return movieAPI;
-}
-
 async function fetchMovieInfo(title) {
-    const movieAPI = configReq(title);
-    const movieInfo = await movieAPI.get('/');
-    if (movieInfo.data.Response === 'False') {
-        console.log(movieInfo.data.Error);
+    const url = baseURL + '?' + `apikey=${KEY}` + `&t=${title}`;
+    const res = await fetch(url);
+    const movieInfo = await res.json();
+    if (movieInfo.Response == 'False') {
+        console.log("???");
         return null;
     } else {
-        return movieInfo.data;
+        return movieInfo;
     }
 }
 
@@ -182,7 +168,6 @@ function populateUI() {
         });
         displayBanner();
     }
-    console.log(nomineeList);
 }
 
 // render the banner based on the number of nominee movie
