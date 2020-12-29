@@ -27,7 +27,7 @@ window.onload = () => {
 };
 
 async function fetchMovieInfo(title) {
-    const url = baseURL + '?' + `apikey=${KEY}` + `&t=${title}`;
+    const url = baseURL + '?' + `apikey=${KEY}` + `&t=${title}` + "$page=5";
     const res = await fetch(url);
     const movieInfo = await res.json();
     if (movieInfo.Response == 'False') {
