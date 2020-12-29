@@ -32,8 +32,10 @@ function configReq(title) {
         params: {
             t: title,
             apikey: KEY,
-            type: 'movie',
-            page: 5
+            type: 'movie'
+        },
+        proxy: {
+            protocol: "https"
         }
     });
     return movieAPI;
@@ -74,9 +76,9 @@ function createMovieCard(data) {
     `;
 
     movieListBox.appendChild(card);
-    console.log(card);
+    // console.log(card);
     nodePairs[id] = card;
-    console.log(nodePairs);
+    // console.log(nodePairs);
     localStorage.setItem("nodePairs", JSON.stringify(nodePairs));
     storeSearchResult(data);
 
