@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./imgs/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <title>Movie Nomination List</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="banner" class="hidden">
+            <h2>🎉🎉You have selected 5 nominees!!!🎉🎉</h2>
+        </div>
+        <div id="search-bar-box">
+            <input type="text" placeholder="Enter Movie Title Here" class="search-bar">
+        </div>
+
+        <div class="list-box">
+            <div id="movie-list">
+                <h3>Search History</h3>
+                <!-- <div class="info-card">
+                    <img src="./imgs/favicon-32x32.png" alt="N/A" class="movie-post">
+                    <div class="movie-info">
+                        <p>Movie Title</p>
+                        <p>1999</p>
+                        <p>Rotten Tomato Rating: 94%</p>
+                    </div>
+                    <label class="add-btn">
+                        <input type="checkbox">
+                        <span>Nominate</span>
+                    </label>        
+                </div> -->
+            </div>
+
+            <div id="nomination-list-box">
+                <h3>Nomination List</h3>
+                <!-- <div class="nominee-card">
+                    <img src="./imgs/favicon-32x32.png" alt="N/A" class="movie-post">
+                    <p>Movie Title</p>
+                    <label class="rmv-btn">
+                        <span>Remove</span>
+                    </label>     
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="index.js"></script>
+
+</html>

@@ -1,0 +1,239 @@
+html {
+    background-color: #fcf8e8;
+    background-image: -webkit-linear-gradient(45deg, #d4e2d4 50%, #fcf8e8 50%);
+    min-height: 600px;
+    overflow: auto;
+}
+
+
+#banner {
+    width: 60%;
+    text-align: center;
+    background-color: #df7861;
+    border-radius: 15px;
+    display: block;
+    animation: slideInFromTop .3s linear 0s 1 normal backwards;
+}
+
+/* banner is hidden initially */
+#banner.hidden {
+    display: none;
+}
+
+/* banner is removed */
+#banner.removed {
+    animation: slideOutToTop .3s linear 0s 1 normal backwards;
+    opacity: 0;
+}
+
+#app {
+    margin-top: 200px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#app .list-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 3vw;
+}
+
+#search-bar-box input {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    width: 60vw;
+    height: 5vh;
+    border-radius: 6px;
+    transition-duration: .3s;
+    cursor: pointer;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+#search-bar-box input:focus {
+    border: none;
+    outline: none;
+}
+
+#search-bar-box input:hover {
+    border: none;
+    outline: none;
+    transform: scale(1.1);
+}
+
+#movie-list, #nomination-list-box {
+    background-color: #f8f1f1;
+    border-radius: 10px;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+#nomination-list-box {
+    width: 30vw;
+}
+
+#movie-list .info-card, #nomination-list-box .nominee-card {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 2px -2px gray;
+    margin-bottom: 8px;
+}
+
+
+.add-btn, .rmv-btn {
+    transition-duration: .3s;
+}
+
+.add-btn:hover, .rmv-btn:hover  {
+    transform: scale(1.05);
+}
+
+.add-btn input, .rmv-btn input {
+    opacity: 0;
+}
+
+.add-btn span, .rmv-btn span {
+    align-self: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #df7861;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    padding: 3px;
+}
+
+
+#movie-list, .info-card .movie-info, #nomination-list-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-info p {
+    margin: 0 5px;
+}
+
+.movie-post {
+    width: 60px;
+    height: 70px;
+}
+
+.disable {
+    opacity: .3;
+}
+
+
+/* Animation */
+
+.info-card{
+    animation: slideInFromLeft .3s linear 0s 1 normal backwards;
+}
+
+.nominee-card{
+    animation: slideInFromRight .3s linear 0s 1 normal backwards;
+}
+
+.nominee-card.removed {
+    animation: slideOutToRight .3s linear 0s 1 normal backwards;
+}
+
+@keyframes slideInFromLeft {
+    0% { 
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-50px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideOutToRight {
+    0% { 
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(50px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% { 
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(50px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideInFromTop {
+    0% { 
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(50px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToTop {
+    0% { 
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(50px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
