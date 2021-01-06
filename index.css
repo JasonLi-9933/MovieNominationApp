@@ -116,6 +116,20 @@ html {
     padding: 3px;
 }
 
+.info-card img, .nominee-card img {
+    margin-left: 3%;
+    width: 13%;
+}
+
+.info-card .movie-info, .nominee-card p {
+    margin: 2%;
+    width: 45%;
+}
+
+.info-card .add-btn, .nominee-card .rmv-btn {
+    width: 30%;
+}
+
 
 #movie-list, .info-card .movie-info, #nomination-list-box {
     display: flex;
